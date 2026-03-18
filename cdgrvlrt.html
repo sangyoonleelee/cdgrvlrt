@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VALORANT Coaching | 프리미엄 강의 안내</title>
+  <meta name="description" content="기초부터 심화까지, 3주 완성 프리미엄 발로란트 코칭 강의 안내 사이트" />
+  <style>
+    :root {
+      --bg: #070b14;
+      --bg2: #0d1324;
+      --card: rgba(255,255,255,0.08);
+      --card-border: rgba(255,255,255,0.14);
+      --text: #f4f7ff;
+      --muted: #a9b4d0;
+      --line: rgba(255,255,255,0.1);
+      --accent: #7c5cff;
+      --accent2: #19c2ff;
+      --accent3: #ff5fa2;
+      --success: #57f287;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(124,92,255,0.22), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(25,194,255,0.16), transparent 24%),
+        radial-gradient(circle at 50% 80%, rgba(255,95,162,0.12), transparent 26%),
+        linear-gradient(180deg, #060912 0%, #09101d 45%, #060912 100%);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(6, 9, 18, 0.58);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 12px 28px rgba(124,92,255,0.28);
+      display: grid;
+      place-items: center;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-cta {
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      font-weight: 700;
+      box-shadow: 0 14px 30px rgba(124,92,255,0.26);
+    }
+
+    .hero {
+      padding: 84px 0 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .glass {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -60px -60px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,92,255,0.3), transparent 68%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #dbe5ff;
+      font-size: 13px;
+      background: rgba(255,255,255,0.04);
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(135deg, #ffffff, #8fdcff 45%, #c8b6ff 85%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 22px;
+      border-radius: 16px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      box-shadow: 0 18px 34px rgba(124,92,255,0.28);
+    }
+
+    .btn-secondary {
+      border-color: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: #e4ebff;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .stat-card, .schedule-card {
+      padding: 28px;
+    }
+
+    .card-title {
+      font-size: 13px;
+      color: #d0d8ee;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .big-number {
+      font-size: clamp(34px, 5vw, 52px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin: 0;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .mini-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #d8e1fb;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 650px;
+      line-height: 1.7;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature-card {
+      padding: 26px;
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      background: linear-gradient(135deg, rgba(124,92,255,0.22), rgba(25,194,255,0.18));
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .curriculum-wrap {
+      display: grid;
+      gap: 18px;
+    }
+
+    .curriculum-card {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .week-badge {
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(124,92,255,0.22), rgba(25,194,255,0.16));
+      border: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .curriculum-card h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .curriculum-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .point-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .point {
+      padding: 13px 14px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #e8eeff;
+      font-size: 14px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.popular {
+      border-color: rgba(124,92,255,0.4);
+      box-shadow: 0 22px 70px rgba(124,92,255,0.18);
+    }
+
+    .popular-badge {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+    }
+
+    .price-card h3 {
+      margin: 0 0 12px;
+      font-size: 26px;
+    }
+
+    .price-target {
+      color: #dce5ff;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+
+    .original-price {
+      color: #8590ad;
+      text-decoration: line-through;
+      font-size: 18px;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .sale-price {
+      display: flex;
+      align-items: end;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .sale-price strong {
+      font-size: clamp(38px, 6vw, 54px);
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+
+    .sale-price span {
+      color: var(--muted);
+      font-size: 15px;
+      padding-bottom: 7px;
+    }
+
+    .discount-chip {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(87,242,135,0.12);
+      color: var(--success);
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(87,242,135,0.22);
+    }
+
+    .price-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .price-list li {
+      padding: 13px 14px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #e8eeff;
+      font-size: 14px;
+    }
+
+    .coaching-box {
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .coaching-panel {
+      padding: 24px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .coaching-panel h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    .coaching-panel p,
+    .coaching-panel li {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .coaching-panel ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .faq-item {
+      padding: 24px;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .cta {
+      padding: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 10px 0 70px;
+    }
+
+    .cta h2 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -0.03em;
+    }
+
+    .cta p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 0 0 38px;
+      color: #8f98b3;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .feature-grid,
+      .pricing-grid,
+      .coaching-box,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .curriculum-card {
+        grid-template-columns: 1fr;
+      }
+
+      .point-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 52px;
+      }
+
+      .hero-card,
+      .stat-card,
+      .schedule-card,
+      .feature-card,
+      .price-card,
+      .faq-item,
+      .cta,
+      .coaching-box {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .section-head h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-badge"></div>
+        <div>PREMIUM COACHING</div>
+      </div>
+      <div class="nav-links">
+        <a href="#overview">강의 소개</a>
+        <a href="#curriculum">커리큘럼</a>
+        <a href="#pricing">가격 안내</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="nav-cta" href="#pricing">수강 안내 보기</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="glass hero-card">
+        <div class="eyebrow">기초부터 심화까지 · 3주 집중 과정</div>
+        <h1>
+          플레이를 바꾸는<br />
+          <span class="hero-highlight">프리미엄 1:1 강의</span>
+        </h1>
+        <p>
+          단순히 몇 가지 팁만 알려주는 수업이 아니라, 에임 · 포지셔닝 · 피킹 · 판단력 · 운영까지
+          실전에서 바로 체감되는 핵심 요소를 단계별로 정리해 드립니다.
+          초반에는 기본기를 단단하게, 후반에는 실전 적용과 심화 디테일까지 끌어올리는 방식으로 진행됩니다.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#pricing">할인가 확인하기</a>
+          <a class="btn btn-secondary" href="#curriculum">커리큘럼 보기</a>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="glass stat-card">
+          <div class="card-title">Course Format</div>
+          <p class="big-number">3주 / 총 3시간</p>
+          <div class="mini-list">
+            <div class="mini-item"><span>진행 방식</span><strong>주 1회 · 회당 60분</strong></div>
+            <div class="mini-item"><span>구성</span><strong>기초 → 응용 → 심화</strong></div>
+            <div class="mini-item"><span>목표</span><strong>실력 체감 상승</strong></div>
+          </div>
+        </div>
+        <div class="glass schedule-card">
+          <div class="card-title">What You Get</div>
+          <div class="mini-list">
+            <div class="mini-item"><span>1주차</span><strong>기초 교정 & 습관 점검</strong></div>
+            <div class="mini-item"><span>2주차</span><strong>교전 이해 & 운영 확장</strong></div>
+            <div class="mini-item"><span>3주차</span><strong>심화 적용 & 개인 맞춤 피드백</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="overview">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>강의 핵심 포인트</h2>
+        </div>
+        <p>
+          처음부터 무작정 어려운 내용으로 들어가지 않고, 현재 플레이 스타일과 습관을 기준으로
+          가장 먼저 고쳐야 할 부분부터 잡아가는 방식입니다.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="glass feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>기초 교정</h3>
+          <p>
+            크로스헤어 위치, 기본 피킹, 에임 습관, 불필요한 움직임 등 가장 많이 실력 차이를 만드는 기본기를 우선 정리합니다.
+          </p>
+        </div>
+        <div class="glass feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3>판단력 강화</h3>
+          <p>
+            왜 죽는지, 왜 이 타이밍에 싸워야 하는지, 어떤 선택이 더 좋은지 이해시키는 방식으로 실전 판단력을 끌어올립니다.
+          </p>
+        </div>
+        <div class="glass feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>심화 적용</h3>
+          <p>
+            단순한 이론 설명에서 끝나지 않고, 실제 게임 흐름 안에서 어떻게 적용해야 하는지까지 연결해 드립니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="curriculum">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>3주 커리큘럼</h2>
+        </div>
+        <p>
+          입문자도 이해하기 쉽게 시작하지만, 끝날 때는 실전에서 바로 써먹을 수 있는 심화 개념까지 자연스럽게 연결되도록 구성했습니다.
+        </p>
+      </div>
+
+      <div class="curriculum-wrap">
+        <div class="glass curriculum-card">
+          <div class="week-badge">1주차</div>
+          <div>
+            <h3>기초 정리 & 플레이 습관 교정</h3>
+            <p>
+              현재 플레이의 문제점을 먼저 파악하고, 기본적인 움직임과 교전 습관을 다듬는 단계입니다.
+              실력이 정체되는 가장 큰 원인을 우선적으로 교정합니다.
+            </p>
+            <div class="point-list">
+              <div class="point">크로스헤어 위치와 시야 정리</div>
+              <div class="point">기본 피킹 타이밍과 거리감 이해</div>
+              <div class="point">에임 흔들림 줄이는 습관 교정</div>
+              <div class="point">불필요한 움직임과 실수 체크</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass curriculum-card">
+          <div class="week-badge">2주차</div>
+          <div>
+            <h3>응용 교전 & 운영 이해</h3>
+            <p>
+              단순히 잘 쏘는 것만이 아니라, 어떤 각을 잡고 어떤 타이밍에 싸워야 하는지,
+              팀 흐름 안에서 어떻게 움직여야 하는지 실전 감각을 키웁니다.
+            </p>
+            <div class="point-list">
+              <div class="point">유리한 각 만들기와 포지셔닝</div>
+              <div class="point">교전 전 정보 활용과 판단 방식</div>
+              <div class="point">상황별 진입·후퇴 타이밍 정리</div>
+              <div class="point">라운드 운영 흐름 이해하기</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass curriculum-card">
+          <div class="week-badge">3주차</div>
+          <div>
+            <h3>심화 디테일 & 맞춤 피드백</h3>
+            <p>
+              마지막 주차에는 수강생 플레이 스타일에 맞춘 심화 피드백을 진행합니다.
+              반복되는 약점은 줄이고, 강점은 더 살릴 수 있도록 실전형으로 마무리합니다.
+            </p>
+            <div class="point-list">
+              <div class="point">상위 티어에서 통하는 디테일 정리</div>
+              <div class="point">실수 반복 구간 집중 보완</div>
+              <div class="point">개인 스타일에 맞는 개선 방향 제시</div>
+              <div class="point">강의 후 혼자 연습하는 방법 정리</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="glass coaching-box">
+        <div class="coaching-panel">
+          <h3>이런 분께 추천합니다</h3>
+          <ul>
+            <li>기본기는 있는데 실전에서 자꾸 무너지는 분</li>
+            <li>무엇을 고쳐야 할지 몰라서 실력이 정체된 분</li>
+            <li>단순 피지컬보다 판단력과 운영까지 배우고 싶은 분</li>
+            <li>기초부터 심화까지 체계적으로 배우고 싶은 분</li>
+          </ul>
+        </div>
+        <div class="coaching-panel">
+          <h3>강의 진행 방식</h3>
+          <ul>
+            <li>총 3주 과정으로 진행</li>
+            <li>주 1회, 회당 60분 수업</li>
+            <li>기초 개념 → 응용 → 심화 흐름으로 구성</li>
+            <li>개인 플레이 스타일에 맞춘 맞춤형 피드백 포함</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>특별 할인가 안내</h2>
+        </div>
+        <p>
+          아래 가격은 요청하신 대상 기준으로 반영한 특별 할인가입니다.
+          상단의 정상가 표시는 할인 체감이 잘 보이도록 구성했습니다.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="glass price-card popular">
+          <div class="popular-badge">SPECIAL PRICE</div>
+          <h3>레디언트 지환님 전용</h3>
+          <div class="price-target">12년생 레디언트 지환님 대상 강의</div>
+          <div class="original-price">정상가 49,000원</div>
+          <div class="sale-price">
+            <strong>20,000원</strong>
+            <span>1인 기준</span>
+          </div>
+          <div class="discount-chip">29,000원 할인</div>
+          <ul class="price-list">
+            <li>3주 과정 / 총 3시간 진행</li>
+            <li>기초부터 심화까지 단계별 코칭</li>
+            <li>실전 감각 중심의 맞춤 피드백</li>
+            <li>개인 플레이 개선 방향 정리</li>
+          </ul>
+        </div>
+
+        <div class="glass price-card">
+          <h3>첵동굴리 전용</h3>
+          <div class="price-target">첵동굴리 대상 강의</div>
+          <div class="original-price">정상가 59,000원</div>
+          <div class="sale-price">
+            <strong>30,000원</strong>
+            <span>1인 기준</span>
+          </div>
+          <div class="discount-chip">29,000원 할인</div>
+          <ul class="price-list">
+            <li>3주 과정 / 총 3시간 진행</li>
+            <li>기초 교정 + 심화 이해까지 연결</li>
+            <li>실전 플레이 기준으로 강의 구성</li>
+            <li>개인 약점 보완 중심 피드백</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>자주 묻는 질문</h2>
+        </div>
+        <p>
+          수강 전 가장 많이 궁금해하는 핵심 내용만 간단하게 정리했습니다.
+        </p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="glass faq-item">
+          <h3>완전 초보도 들어도 되나요?</h3>
+          <p>
+            가능합니다. 처음부터 어려운 내용만 다루는 것이 아니라, 기본기부터 차근차근 설명한 뒤 점점 심화 내용으로 확장하는 구조입니다.
+          </p>
+        </div>
+        <div class="glass faq-item">
+          <h3>강의는 몇 번 진행되나요?</h3>
+          <p>
+            총 3주에 걸쳐 진행되며, 전체 수업 시간은 3시간입니다. 일반적으로 주 1회, 회당 60분 구성으로 안내됩니다.
+          </p>
+        </div>
+        <div class="glass faq-item">
+          <h3>어떤 부분이 가장 많이 좋아지나요?</h3>
+          <p>
+            교전 습관, 에임 기초, 피킹 타이밍, 포지셔닝, 판단력 같은 실전 핵심 영역을 위주로 다루기 때문에 플레이 체감이 빠른 편입니다.
+          </p>
+        </div>
+        <div class="glass faq-item">
+          <h3>개인 맞춤 피드백도 있나요?</h3>
+          <p>
+            있습니다. 단순 공통 강의가 아니라, 수강생 플레이 스타일과 반복되는 실수를 기준으로 맞춤형 개선 방향을 함께 잡아드립니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="glass cta">
+        <div>
+          <h2>기초는 탄탄하게, 심화는 확실하게.</h2>
+          <p>
+            3주 동안 가장 중요한 부분만 압축해서,
+            실전에서 바로 느껴지는 변화에 집중한 프리미엄 강의 과정입니다.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="#pricing">지금 가격 확인하기</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Premium Coaching Landing Page · HTML Single File
+  </footer>
+</body>
+</html>
